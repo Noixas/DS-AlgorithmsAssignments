@@ -1,11 +1,11 @@
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Node<T> {
 
 	private T data = null;
 
-	private List<Node<T>> children = new ArrayList<>();
+	private List<Node<T>> children = new LinkedList<>();
 
 	private Node<T> parent = null;
 
@@ -25,13 +25,14 @@ public class Node<T> {
 
 	public Node<T> addChild(Node<T> pChild) {
 		 children.add(pChild);
+     pChild.setParent(this);
      return pChild;
 	}
 
 	public void addChildren(List<Node<T>> pChildren) {
 		for(int i = 0; i < pChildren.size(); i++)
     {
-      children.add(pChildren.get(i));
+      addChild(pChildren.get(i));
     }
 	}
 
