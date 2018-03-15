@@ -1,11 +1,14 @@
+import java.util.List;
+import java.util.ArrayList;
 public class Vertex {
     final private String id;
     final private String name;
-
+    private List<Edge> _edges;
 
     public Vertex(String id, String name) {
         this.id = id;
         this.name = name;
+        _edges = new ArrayList<Edge>();
     }
     public String getId() {
         return id;
@@ -14,7 +17,14 @@ public class Vertex {
     public String getName() {
         return name;
     }
-
+    public void addEdge(Edge pEdge)
+    {
+      _edges.add(pEdge);
+    }
+    public List<Edge> getEdges()
+    {
+      return _edges;
+    }
     @Override
     public boolean equals(Object obj) {
         if (this == obj)
