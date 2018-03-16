@@ -9,6 +9,9 @@ public class Edge  {
         this.source = source;
         this.destination = destination;
         this.weight = weight;
+
+        this.destination.addEdge(this);
+        this.source.addEdge(this);
     }
 
     public String getId() {
